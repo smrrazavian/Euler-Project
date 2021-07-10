@@ -4,3 +4,4 @@ for number in range(1, 1000):
         x += number
 
 print(x)
+# Answer : 233168
