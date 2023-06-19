@@ -1,8 +1,7 @@
 from time import time
 
 t = time()
-num = '\
-73167176531330624919225119674426574742355349194934\
+num = '73167176531330624919225119674426574742355349194934\
 96983520312774506326239578318016984801869478851843\
 85861560789112949495459501737958331952853208805511\
 12540698747158523863050715693290963295227443043557\
@@ -22,28 +21,26 @@ num = '\
 84580156166097919133875499200524063689912560717606\
 05886116467109405077541002256983155200055935729725\
 71636269561882670428252483600823257530420752963450'
-i = 0
-j = 0
-k = 0
-while i < len(num) - 13:
-    one = int(num[i])
-    two = int(num[i + 1])
-    three = int(num[i + 2])
-    four = int(num[i + 3])
-    five = int(num[i + 4])
-    six = int(num[i + 5])
-    seven = int(num[i + 6])
-    eight = int(num[i + 7])
-    nine = int(num[i + 8])
-    ten = int(num[i + 9])
-    eleven = int(num[i + 10])
-    twoelve = int(num[i + 11])
-    thirteen = int(num[i + 12])
-    j = one * two * three * four * five * six * seven * eight * nine * ten * eleven * twoelve * thirteen
-    i = i + 1
-    if k < j:
-        k = j
-print(k)
-print(len(num))
-elapsed = (time() - t)
-print("This code took: " + str(elapsed) + " seconds")
+
+start = 0
+end = 13
+max_product = 0
+
+while end <= len(num):
+    product = 1
+    for i in range(start, end):
+        if num[i] == '0':
+            start = i + 1
+            end = start + 13
+            break
+        else:
+            product *= int(num[i])
+    else:
+        if product > max_product:
+            max_product = product
+        start += 1
+        end += 1
+
+print(max_product)
+elapsed = time() - t
+print(f"This code took: {elapsed} seconds")

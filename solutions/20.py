@@ -4,9 +4,7 @@ from math import factorial
 start = time()
 a = str(factorial(100))
 
-b = 0
-for i in a:
-    b = int(i) + b
+b = sum(int(i) for i in a)
 
 print(b)
 

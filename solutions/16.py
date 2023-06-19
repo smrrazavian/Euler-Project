@@ -5,11 +5,12 @@ start = time()
 
 #n = int(input("Enter the power : "))
 n = 1000
-b = str(int(pow(2, n)))
+b = int(pow(2, n))
 a = 0
 
-for i in b:
-    a = int(i) + a
+while b > 0:
+    a += b % 10
+    b //= 10
 
 print(a)
 

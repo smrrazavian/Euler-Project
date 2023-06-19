@@ -12,7 +12,7 @@ def is_composite(number):
     return True
 
 
-while solution_found == False:
+while not solution_found:
     if is_composite(num):
         solution_found = True
         print(num)
